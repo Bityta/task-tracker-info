@@ -1,0 +1,60 @@
+version: "3.1"
+services:
+  postgres:
+    container_name: "postgres"
+    image: postgres:14.7-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: task-tracker-backend
+    ports:
+      - "15432:5432"
+
+  rabbitmq:
+    container_name: 'rabbitmq'
+    image: 'rabbitmq:3-management-alpine'
+    restart: always
+    environment:
+      RABBITMQ_PASSWORD: admin
+      RABBITMQ_USERNAME: admin
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  task-tracker-service-discovery:
+    container_name: "task-tracker-service-discovery"
+    image: task-tracker-service-discovery:0.0.1
+    build:
+      context: ../task-tracker-service-discovery/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8761:8761"
+
+  task-tracker-email-sender:
+    container_name: task-tracker-email-sender
+    image: task-tracker-email-sender:0.0.1
+    build:
+      context: ../task-tracker-email-sender/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - task-tracker-service-discovery
+      - rabbitmq
+
+  task-tracker-backend:
+    container_name: "task-tracker-backend"
+    image: task-tracker-backend:0.0.1
+    build:
+      context: ../task-tracker-backend/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - task-tracker-service-discovery
+      - postgres
+      - task-tracker-email-sender
