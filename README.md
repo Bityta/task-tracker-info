@@ -2,17 +2,40 @@
 
 ## Overview
 
-General information for the Task - Tracker Micro Service Application
+The Task-Tracker Microservice Application is a scalable and modular system designed for efficient task management. Built on microservices architecture, it offers flexibility and resilience, allowing seamless integration with other components within the ecosystem.
+
+## Components
+
+- **Backend Service:** Core service handling user authentication and task management through RESTful APIs.
+- **Service Discovery:** Central registry facilitating service registration and dynamic routing.
+- **Email Sender:** Sends welcome emails to users upon registration, integrating with external email services.
+- **Scheduler:** Manages task scheduling and execution, integrating with the backend service.
+
+
+### Microservices links:
+
+- Backend [here](https://github.com/Bityta/task-tracker-backend).
+- Service Discovery [here](https://github.com/Bityta/task-tracker-service-discovery).
+- Email Sender [here](https://github.com/Bityta/task-tracker-email-sender)
+- Scheduler [here](https://github.com/Bityta/task-tracker-scheduler).
+
+
+## Features
+
+- User Registration and Authentication
+- Task Creation, Modification, and Deletion
+- Task Tracking and Completion
+- Integration with External Email Services
+- Scheduled Task Execution
+- Error Handling and Logging
+
+## Database Integration
+
+- PostgreSQL utilized for user and task data
 
 The project's technical specifications are
 taken [here](https://zhukovsd.github.io/java-backend-learning-course/Projects/TaskTracker/).
 
-### Microservices:
-
-- Service Discovery [here](https://github.com/Bityta/task-tracker-service-discovery).
-- Email Sender [here](https://github.com/Bityta/task-tracker-email-sender)
-- Backend [here](https://github.com/Bityta/task-tracker-backend).
-- Scheduler [here](https://github.com/Bityta/task-tracker-scheduler).
 
 ## Microservices Startup Sequence:
 
