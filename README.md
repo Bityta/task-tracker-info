@@ -4,6 +4,7 @@
 
 The Task-Tracker Microservice Application is a scalable and modular system designed for efficient task management. Built on microservices architecture, it offers flexibility and resilience, allowing seamless integration with other components within the ecosystem.
 
+The project's technical specifications are taken [here](https://zhukovsd.github.io/java-backend-learning-course/Projects/TaskTracker/).
 ## Components
 
 - **Backend Service:** Core service handling user authentication and task management through RESTful APIs.
@@ -33,8 +34,7 @@ The Task-Tracker Microservice Application is a scalable and modular system desig
 
 - PostgreSQL utilized for user and task data
 
-The project's technical specifications are
-taken [here](https://zhukovsd.github.io/java-backend-learning-course/Projects/TaskTracker/).
+
 
 
 ## Microservices Startup Sequence:
